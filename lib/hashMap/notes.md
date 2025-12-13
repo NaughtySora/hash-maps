@@ -17,8 +17,8 @@
 ### Hashing 
 - strings by value
 - numbers by value or multiplied with constant
-- objects hashed by identity / reference
 - booleans or small integers naturally mapped
+- objects hashed by identity / reference
 
 ### Hashes Needed for:
 - predictable bucket indexing
