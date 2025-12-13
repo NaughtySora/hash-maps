@@ -3,7 +3,7 @@
 
 ## Bucket index
 - **modulo**: hash(key) % capacity
-- **bitwise (faster)**:  hash(key) & (capacity - 1), only if capacity % 2 == 0
+- **bitwise (faster)**:  hash(key) & (capacity - 1), n & (n - 1) === 0
 
 ## Collision
 *bucket index already in use*
