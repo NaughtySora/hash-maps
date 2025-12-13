@@ -1,0 +1,8 @@
+{
+  "name": "maps",
+  "version": "0.0.1",
+  "description": "hashes, hash/tree map",
+  "license": "MIT",
+  "author": "NaughtySora <naughtysora@proton.me>",
+  "exports": "./main.js"
+}
