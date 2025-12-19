@@ -143,6 +143,8 @@ describe('HashMap', () => {
   });
 
   it('toStringTag', () => {
-    assert.equal(Object.prototype.toString.call(new HashMap()), '[object HashMap]');
+    assert.equal(Object.prototype
+      .toString
+      .call(new HashMap()), '[object HashMap]');
   });
 });
