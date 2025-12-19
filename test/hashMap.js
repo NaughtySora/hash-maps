@@ -91,4 +91,58 @@ describe('HashMap', () => {
     expected.forEach(i => map.set(...i));
     assert.deepEqual([...map], expected);
   });
+
+  it('entries', () => {
+    const expected = [1, 2, 3, 4, 5].map(i => [i, i]);
+    const map = new HashMap();
+    expected.forEach(i => map.set(...i));
+    assert.deepEqual([...map.entries()], expected);
+  });
+
+  it('entries', () => {
+    const expected = [1, 2, 3, 4, 5].map(i => [i, i]);
+    const map = new HashMap();
+    expected.forEach(i => map.set(...i));
+    assert.deepEqual([...map.entries()], expected);
+  });
+
+  it('values', () => {
+    const expected = [1, 2, 3, 4, 5];
+    const map = new HashMap();
+    expected.forEach(i => map.set(i, i));
+    assert.deepEqual([...map.values()], expected);
+  });
+
+  it('keys', () => {
+    const expected = [1, 2, 3, 4, 5];
+    const map = new HashMap();
+    expected.forEach(i => map.set(i, i));
+    assert.deepEqual([...map.keys()], expected);
+  });
+
+  it('forEach', () => {
+    const expected = [1, 2, 3, 4, 5].map(i => [i, i]);
+    const map = new HashMap();
+    expected.forEach(i => map.set(i[0] + 1, i[1] + 2));
+    const actual = [];
+    map.forEach((el) => {
+      actual.push([el[0] - 1, el[1] - 2]);
+    });
+    assert.deepEqual(actual, expected);
+  });
+
+  it('clear', () => {
+    const expected = [1, 2, 3, 4, 5].map(i => [i, i]);
+    const map = new HashMap(32);
+    expected.forEach(i => map.set(...i));
+    assert.equal(map.capacity, 32);
+    assert.equal(map.size, 5);
+    map.clear();
+    assert.equal(map.capacity, 8);
+    assert.equal(map.size, 0);
+  });
+
+  it('toStringTag', () => {
+    assert.equal(Object.prototype.toString.call(new HashMap()), '[object HashMap]');
+  });
 });
