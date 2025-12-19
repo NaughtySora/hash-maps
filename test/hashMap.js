@@ -84,4 +84,11 @@ describe('HashMap', () => {
     assert.equal(map.size, 4);
     assert.equal(map.capacity, 6);
   });
+
+  it('iterator', () => {
+    const expected = [1, 2, 3, 4, 5].map(i => [i, i]);
+    const map = new HashMap();
+    expected.forEach(i => map.set(...i));
+    assert.deepEqual([...map], expected);
+  });
 });
