@@ -4,5 +4,11 @@
   "description": "hashes, hash/tree map",
   "license": "MIT",
   "author": "NaughtySora <naughtysora@proton.me>",
-  "exports": "./main.js"
+  "exports": "./main.js",
+  "scripts": {
+    "test": "c8 node ./test/index.js"
+  },
+  "devDependencies": {
+    "c8": "^10.1.3"
+  }
 }

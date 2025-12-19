@@ -50,4 +50,38 @@ describe('HashMap', () => {
     assert.equal(map.get('abc'), true);
     assert.equal(map.size, 4);
   });
+
+  it('has/delete', () => {
+    const map = new HashMap();
+    map.set(1, 55);
+    assert.ok(map.has(1));
+    map.set(1, '55');
+    assert.ok(map.has(1));
+    assert.equal(map.size, 1);
+    const deleted = map.delete(1, 55);
+    assert.ok(deleted);
+    assert.equal(map.delete('smth', 55), false);
+    assert.equal(map.size, 0);
+    assert.equal(map.has(1), false);
+  });
+
+  it('resize', () => {
+    const map = new HashMap(2);
+    map.set(1, 1).set(2, 2).set(3, 3);
+    assert.equal(map.size, 3);
+    assert.equal(map.capacity, 4);
+    map.set(4, 4);
+    assert.equal(map.size, 4);
+    assert.equal(map.capacity, 8);
+  });
+
+  it('modulo indexing', () => {
+    const map = new HashMap(3);
+    map.set(1, 1);
+    assert.equal(map.size, 1);
+    assert.equal(map.capacity, 3);
+    map.set(2, 2).set(3, 3).set(4, 4);
+    assert.equal(map.size, 4);
+    assert.equal(map.capacity, 6);
+  });
 });
